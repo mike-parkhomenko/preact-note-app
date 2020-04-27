@@ -1,25 +1,25 @@
-import { createContext } from 'preact';
-import { useState, useContext } from 'preact/hooks';
-import useSessionStorage from '../../hooks/useSessionStorage';
+import { createContext } from "preact";
+import { useState, useContext } from "preact/hooks";
+import useSessionStorage from "../../hooks/useSessionStorage";
 
-const NotesContext = createContext(null);
+const NotesContext = createContext({});
 
 function useNotes() {
   const context = useContext(NotesContext);
   if (!context) {
-    throw new Error('No context defined for notes');
+    throw new Error("No context defined for notes");
   }
   return context;
 }
 
 function useNote(id) {
   const [notes] = useNotes();
-  return notes[id];
+  return notes && notes[id];
 }
 
 function NotesProvider(props) {
-  const [getStoredNotes, setStoredNotes] = useSessionStorage('notes', null);
-  const [notes, setNotes] = useState(getStoredNotes());
+  const [getStoredNotes, setStoredNotes] = useSessionStorage("notes", JSON.stringify({}));
+  const [notes, setNotes] = useState({ ...getStoredNotes() });
 
   function setNotesData(data) {
     setNotes({ ...notes, ...data });
@@ -44,7 +44,7 @@ function NotesProvider(props) {
 
   const value = [notes, setNotesData, removeNote, editNote];
 
-  return <NotesContext.Provider value={value} {...props} />
+  return <NotesContext.Provider value={value} {...props} />;
 }
 
 export { useNotes, useNote, NotesProvider };
