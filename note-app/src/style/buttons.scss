@@ -1,0 +1,17 @@
+.button {
+  margin: 0 5px 0 .5rem;
+  padding: 5px 10px;
+  border-radius: 3px;
+  font-size: 100%;
+  cursor: pointer;
+  border: none;
+
+  &.base {
+    border: 1px solid #673ab8;
+  }
+
+  &.primary {
+    background-color: #673ab8;;
+    color: #fff;
+  }
+}

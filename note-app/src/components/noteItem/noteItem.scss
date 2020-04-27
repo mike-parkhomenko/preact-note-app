@@ -1,0 +1,65 @@
+.noteItem {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  -webkit-transition: background .3s;
+  transition: background .3s;
+  color: #555;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: .2em;
+    background: #673ab8;
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  &:hover {
+    background: #f3f3f3;
+    color: #673ab8;
+
+    &::before {
+      visibility: visible;
+      opacity: 1;
+      transition: 0.3s;
+    }
+
+    .noteItem__icon {
+      opacity: 1;
+      transition: 0.3s;
+    }
+  }
+  
+  &__link {
+    flex: 1;
+    display: block;
+    position: relative;
+    padding: 1em .75em 1em 1em;
+    cursor: pointer;
+  }
+
+  &__right {
+    display: flex;
+    align-items: center;
+  }
+
+  &__icon {
+    display: flex;
+    padding: 0 1em;
+    height: 100%;
+    align-items: center;
+    color: #666;
+    cursor: pointer;
+    opacity: 0;
+    transition: 0s;
+
+    &:hover {
+      color: #333;
+      transition: 0.2s;
+    }
+  }
+}

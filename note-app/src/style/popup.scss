@@ -1,0 +1,22 @@
+.popup-inner {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  &__title {
+    text-align: center;
+    padding-bottom: 1em;
+  }
+
+  &__input {
+    width: 100%;
+  }
+
+  &__btns-wrapper {
+    margin-top: 1em;
+  }
+}
+
+.btns-wrapper {
+  padding: 0;
+}

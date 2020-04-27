@@ -1,0 +1,38 @@
+.notes {
+  padding-top: 56px;
+  width: 100%;
+  height: calc(100vh);
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+
+  &__title {
+    text-align: center;
+    padding: 1em 0;
+  }
+
+  &__placeholder {
+    display: flex;
+    align-self: center;
+    padding-top: 1em;
+  }
+
+  &__footer {
+    display: flex;
+    margin-top: auto;
+    padding: 1em;
+    background: #f8f8f8;
+    border-top: 2px solid #ddd;
+  }
+
+  &__input {
+    flex: 1;
+  }
+}
+
+.notesList {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  overflow-y: scroll;
+}
